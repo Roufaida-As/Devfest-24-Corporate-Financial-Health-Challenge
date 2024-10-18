@@ -4,5 +4,6 @@ const ReportSchema = new mongoose.Schema({
     type: { type: String, enum: ['monthly', 'yearly', 'custom'], required: true },
     generatedAt: { type: Date, default: Date.now },
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'USER' },
-    data: Object, // Store report details
+    data: Object, 
 });
+module.exports = mongoose.model("REPORT", ReportSchema)
