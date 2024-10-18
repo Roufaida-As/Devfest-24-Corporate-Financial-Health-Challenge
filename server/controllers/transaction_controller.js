@@ -1,6 +1,12 @@
 const trans = require('./../models/transaction_model');
 const asyncHandler = require('express-async-handler')
 
+let io;
+
+const setSocketIO = (socketIO) => {
+    io = socketIO;
+}
+
 const addTransaction = async (req, res) => {
     const { type, amount, category, description, company } = req.body;
 
@@ -12,6 +18,12 @@ const addTransaction = async (req, res) => {
         company,
         userId: req.user._id,
     })
+
+    // Emit event when a transaction is added
+    if (io) {
+        io.emit('transactionAdded', newTransaction);
+    }
+
     res.status(201).json({
         message: 'Transaction added successfully',
         transaction: newTransaction
@@ -53,6 +65,9 @@ const updateTransaction = asyncHandler(async (req, res) => {
 
     await transaction.save();
     res.status(200).json(transaction);
+    if (io) {
+        io.emit('transactionUpdated', transaction);
+    }
 
 });
 
@@ -65,6 +80,9 @@ const deleteTransaction = asyncHandler(async (req, res) => {
     }
 
     res.status(200).json({ message: 'Transaction deleted successfully' });
+    if (io) {
+        io.emit('transactionUpdated', transaction);
+    }
 
 });
 
@@ -73,5 +91,6 @@ module.exports = {
     getTransactions,
     getTransactionById,
     updateTransaction,
-    deleteTransaction
+    deleteTransaction,
+    setSocketIO
 };

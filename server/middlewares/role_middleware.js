@@ -1,4 +1,4 @@
-export default function (requiredRole) {
+const roleMiddleware = function (requiredRole) {
     return (req, res, next) => {
         const userRole = req.user.role;
         if (userRole !== requiredRole) {
@@ -7,3 +7,4 @@ export default function (requiredRole) {
         next();
     };
 };
+module.exports = roleMiddleware
