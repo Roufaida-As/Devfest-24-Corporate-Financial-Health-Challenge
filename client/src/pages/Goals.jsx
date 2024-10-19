@@ -6,14 +6,17 @@ import Header from "/src/components/Dashboard/Header";
 import Chart from "/src/components/Dashboard/Chart";
 import "/src/components/Dashboard/Style/Dashboard.css"; // Import the CSS file
 import Income from "/src/components/Dashboard/Income";
-import pfp from "/src/assets/pfp.jpg";
+import pictur from "/src/assets/0c399a55685c6002002dcaf2324892f2.png"
+import pfp from "/src/assets/pfp.jpg"; // Import the profile picture component
+import NewGola from "../components/NewGola";
+
 import Transactions from "/src/components/Dashboard/Transactions";
 import Available from "/src/components/Dashboard/Available";
 
 function Goals() {
   // Sample data for the user profile
   const userProfile = {
-    profilePicture: "/path/to/profile-picture.jpg",
+    profilePicture: pfp,
     fullName: "John Doe",
     email: "johndoe@example.com",
   };
@@ -27,12 +30,12 @@ function Goals() {
       }}
     >
       <Sidebar
-        profilePicture={profilePicture}
-        fullName={fullName}
-        email={email}
+        profilePicture={userProfile.profilePicture}
+        fullName={userProfile.fullName}
+        email={userProfile.email}
       />
       <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
-        <Header user={{ name: fullName }} />
+        <Header user={{ name: userProfile.fullName }} />
         <div
           style={{
             display: "flex",
@@ -41,39 +44,26 @@ function Goals() {
             gap: "30px",
           }}
         >
-          <div style={{ flex: 1, padding: "20px" }}>
-            <h1 className="dashboard-title">My Dashboard</h1>
-            <div className="item-list" style={{ display: "flex", gap: "10px" }}>
-              {["All", "Withdrawal", "Deposit", "Savings"].map((item) => (
-                <div
-                  key={item}
-                  className={`item ${selectedItem === item ? "selected" : ""}`}
-                  onClick={() => setSelectedItem(item)}
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-            <Chart />
-            <div style={{ display: "flex", gap: "35px", marginTop: "20px" }}>
-              <Available />
-              <div style={{ flex: 1 }}>
-                <Income
-                  title="Income"
-                  money="2345"
-                  percentage="19"
-                  color="#a4f9c8"
-                />
-                <Income
-                  title="Expense"
-                  money="2345"
-                  percentage="13"
-                  color="#cbaacb"
-                />
-              </div>
-            </div>
+          <div style={{
+            fontSize:"24px",
+            display:"flex",
+            margin:"0px 25px",
+            flexDirection: "column",
+            gap:""
+            , width:"50%"
+          }}>
+            <h1 style={{
+              color:"#364F6B"
+
+            }
+            }>My Financial <span style={{ color:"#CBAACB"}}>Goals</span> </h1>
+            <p style={{color:"#364F6BCC" ,fontSize:"22px", fontWeight:"500", marginTop:"-15px", textAlign:"center"}}>Track your progress toward achieving your financial dreams!</p>
+            <img src={pictur} alt="" style={{
+              width:"220px",
+              height:"250px"
+              }}/>
           </div>
-          <Transactions />
+          <NewGola/>
         </div>
       </div>
     </div>
