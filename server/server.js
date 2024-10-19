@@ -8,6 +8,7 @@ const transactionRouter = require('./routes/transactions_router');
 const dashboardRouter = require('./routes/dashboard_router');
 const transactionController = require('./controllers/transaction_controller');
 const reportingRouter = require('./routes/reporting_router')
+const goalsRouter = require('./routes/goals_router')
 
 dotenv.config({ path: './.env' });
 const port = process.env.PORT;
@@ -34,6 +35,7 @@ app.use('/api/users', userRouter);
 app.use('/api/transactions', transactionRouter);
 app.use('/api/dashboard', dashboardRouter);
 app.use('/api/reporting', reportingRouter);
+app.use('/api/company-goals', goalsRouter);
 
 // Set up Socket.IO connection
 io.on('connection', (socket) => {
