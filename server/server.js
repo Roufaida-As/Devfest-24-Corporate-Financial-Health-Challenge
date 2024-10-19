@@ -7,7 +7,7 @@ const userRouter = require('./routes/user_router');
 const transactionRouter = require('./routes/transactions_router');
 const dashboardRouter = require('./routes/dashboard_router');
 const transactionController = require('./controllers/transaction_controller');
-
+const reportingRouter = require('./routes/reporting_router')
 
 dotenv.config({ path: './.env' });
 const port = process.env.PORT;
@@ -33,6 +33,7 @@ mongoose.connect(process.env.CONN_STR).then(() => {
 app.use('/api/users', userRouter);
 app.use('/api/transactions', transactionRouter);
 app.use('/api/dashboard', dashboardRouter);
+app.use('/api/reporting', reportingRouter);
 
 // Set up Socket.IO connection
 io.on('connection', (socket) => {
