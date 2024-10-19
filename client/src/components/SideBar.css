@@ -1,0 +1,155 @@
+.sidebar {
+  width: 15%; /* Sidebar width */
+  /* height: 100%; */
+  background: linear-gradient(180deg, #699ad1 5%, #364f6b 37%);
+  color: white; /* Text color */
+  /* position: fixed; */
+  /* top: 0; 
+  left: 0;  */
+  z-index: 2; /* Ensure the sidebar is above the header */
+  padding: 20px; /* Padding for the sidebar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Optional shadow for effect */
+}
+
+.sidebar.open {
+  left: 0; /* Show sidebar */
+}
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center the profile picture and info */
+  align-items: center; /* Center the profile picture and info horizontally */
+  margin-bottom: 15px; /* Space below the profile picture */
+  margin-top: 20px;
+}
+
+.profile-picture {
+  width: 84px; /* Adjust the size as needed */
+  height: 84px; /* Adjust the size as needed */
+  border-radius: 50%; /* Make it circular */
+  object-fit: cover; /* Ensure the image covers the area */
+}
+
+.profile-info {
+  text-align: center; /* Center text */
+  color: white; /* Text color */
+}
+
+.profile-name {
+  color: white;
+  font-size: 15;
+  font-weight: 600; /* Bold text for full name */
+  margin-top: 10px; /* Space above the name */
+}
+
+.profile-email {
+  color: white;
+  font-size: 8;
+  margin-top: 5px; /* Space above the email */
+  margin-bottom: 18px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  width: 100%; /* Full width for the menu */
+}
+
+.menu-item {
+  border-radius: 20px;
+  display: flex;
+  font-weight: bold;
+  margin-top: 10px;
+
+  align-items: center; /* Center items vertically */
+  padding: 10px 15px; /* Padding for each menu item */
+  color: #a4f9c8; /* Default color for unselected items */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, color 0.3s; /* Transition for smooth effect */
+}
+
+.menu-item.selected {
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8); /* Neon white border shadow */
+
+  background-color: #a4f9c8; /* Green background for selected item */
+  color: #364f6b; /* Change text color to blue for selected item */
+}
+
+.menu-item i {
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.toggle-button {
+  margin-top: 20px;
+  background-color: white;
+  color: blue;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+.money-scope {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.m {
+  font-family: Montserrat Subrayada;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 48.76px;
+  text-align: left;
+  color: #cbaacb;
+}
+
+.dollar {
+  margin-left: 1px; /* Space between "oney" and "$" */
+}
+
+.gradient-text {
+  font-family: Montserrat;
+  font-size: 32px; /* Match the size with the dollar sign */
+  font-weight: 700;
+  line-height: 39.01px;
+  background: linear-gradient(180deg, #364f6b 0.38%, #a4f9c8 77.47%);
+  -webkit-background-clip: text; /* Clip background to text */
+  background-clip: text; /* Standard property */
+  color: transparent; /* Make the text transparent to show the gradient */
+}
+
+.oney-cope {
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 39.01px;
+  text-align: left;
+  color: #f1f8e9;
+}
+
+.logout-button {
+  display: flex;
+  color: white; /* Set text color to white */
+  font-weight: bold; /* Make text bold */
+  margin-bottom: 10px; /* Add margin at the bottom */
+  margin-top: 120px;
+
+  align-items: center;
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.logout-button svg {
+  margin-right: 8px; /* Space between icon and text */
+}

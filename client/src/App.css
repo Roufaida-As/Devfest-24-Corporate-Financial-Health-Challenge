@@ -1,42 +1,195 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: #9e9ea4;
+  font-family: "Montserrat", sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.icon {
+  vertical-align: middle;
+  line-height: 1px;
+  font-size: 20px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.icon_header {
+  vertical-align: middle;
+  line-height: 1px;
+  font-size: 26px;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon,
+.icon_header {
+  margin-right: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.close_icon {
+  color: red;
+  margin-left: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas:
+    "sidebar header header header"
+    "sidebar main main main";
+  height: 100vh;
+}
+
+/* Main  */
+.main-container {
+  grid-area: main;
+  overflow-y: auto;
+  padding: 20px 20px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.main-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 15px 0;
 }
 
 .card {
-  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 8px 15px;
+  border-radius: 5px;
 }
 
-.read-the-docs {
-  color: #888;
+.card:first-child {
+  background-color: #2962ff;
 }
+
+.card:nth-child(2) {
+  background: linear-gradient(#cbaacb, White);
+}
+
+.card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-inner > .card_icon {
+  font-size: 25px;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 60px;
+  height: 300px;
+}
+
+/* End Main  */
+
+/* Medium <= 992px */
+
+@media screen and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      "header"
+      "main";
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .sidebar-title > span {
+    display: inline;
+  }
+}
+/* Small <= 768px */
+
+@media screen and (max-width: 768px) {
+  .main-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+}
+
+/* Extra Small <= 576px */
+
+@media screen and (max-width: 576px) {
+  .hedaer-left {
+    display: none;
+  }
+}
+
+.dashboard-title {
+  font-weight: bold;
+  width: 570px;
+
+  /* margin-left: 22%; */
+  color: #364f6b; /* Title color */
+  font-size: 36px; /* Adjust the size as needed */
+  /* margin-top: 100px;  */
+  margin-bottom: 20px; /* Space below the title */
+}
+
+.item-list {
+  display: flex; /* Use flexbox for horizontal layout */
+  flex-direction: row; /* Align items horizontally */
+  /* margin-left: 25%;   */
+  margin-bottom: 20px; /* Space below the item list */
+  justify-content: start;
+  gap: 15px;
+  width: "570px";
+}
+
+.item {
+  background-color: #a4f9c8; /* Default background color (green) */
+  color: white; /* Text color */
+  font-weight: 500;
+  padding: 10px 20px; /* Padding for the boxes */
+  border-radius: 20px; /* Rounded corners */
+  margin: 0 10px; /* Space between items */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+  box-shadow: 0px 0px 20px 5px #364f6b80; /* Shadow effect */
+}
+
+.item.selected {
+  color: #364f6b;
+  background-color: #a4f9c8; /* Selected background color (green) */
+}
+
+.item:not(.selected) {
+  background-color: #98c1d9; /* Not selected background color (blue) */
+}
+
+.chart-container {
+  margin-left: 20%;
+  width: 80%; /* Full width */
+  height: 400px; /* Set height for the chart */
+  margin: 20px 0; /* Space above and below the chart */
+  background: linear-gradient(179.02deg, #cbaacb 12.26%, #ffffff 125.85%);
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding for the chart */
+}
+
+/* You can also add specific styles for the chart if needed */
