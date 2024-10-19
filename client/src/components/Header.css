@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #a4f9c8 4.69%, #364f6b 86.21%);
+
+  padding: 20px;
+  color: white;
+  /* position: fixed;
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  z-index: 1;
+  height: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-name {
+  cursor: pointer;
+}
+
+.greeting {
+  font-weight: 900;
+  color: #364f6b;
+  /* margin-left: 21%; */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  /* margin-right: 5%; */
+}
+
+.search-bar {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  width: 200px;
+  border-color: transparent;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+}
