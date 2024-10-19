@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
-import "./Header.css"; // Make sure to create this CSS file
+import "./Style/Header.css"; // Make sure to create this CSS file
 
 function Header({ toggleSidebar, user }) {
   // Get the current hour to determine the greeting

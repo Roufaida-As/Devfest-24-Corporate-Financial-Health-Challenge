@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
 import React, { useState } from "react";
-import "./SideBar.css"; // Adjust the path as necessary
+import "./Style/SideBar.css"; // Adjust the path as necessary
 import { BiLogOut } from "react-icons/bi";
 
 function Sidebar({ profilePicture, fullName, email }) {

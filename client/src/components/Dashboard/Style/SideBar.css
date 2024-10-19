@@ -1,6 +1,6 @@
 .sidebar {
   width: 15%; /* Sidebar width */
-  /* height: 100%; */
+  height: 100vh;
   background: linear-gradient(180deg, #699ad1 5%, #364f6b 37%);
   color: white; /* Text color */
   /* position: fixed; */

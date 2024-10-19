@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { ChevronRight } from "lucide-react";
-import "./Available.css";
+import "./Style/Available.css";
 
 const AvailabilityComponent = () => {
   const progressBarData = [
