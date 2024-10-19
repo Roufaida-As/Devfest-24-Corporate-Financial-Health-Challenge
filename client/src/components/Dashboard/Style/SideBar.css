@@ -144,12 +144,50 @@
   color: white; /* Set text color to white */
   font-weight: bold; /* Make text bold */
   margin-bottom: 10px; /* Add margin at the bottom */
-  margin-top: 120px;
-
+  margin-top: 220px;
+  position: sticky;
   align-items: center;
   cursor: pointer; /* Change cursor on hover */
 }
 
 .logout-button svg {
   margin-right: 8px; /* Space between icon and text */
+}
+
+.dropdown {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item.selected {
+  background: linear-gradient(179.02deg, #cbaacb 12.26%, #ffffff 125.85%);
+  color: white;
+}
+
+.dropdown-item span {
+  padding: 5px 15px;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Ensure the text is always visible */
+.dropdown-item.selected span {
+  color: white;
+}
+
+/* Optional: Add some spacing between dropdown items */
+.dropdown-item + .dropdown-item {
+  margin-top: 5px;
 }

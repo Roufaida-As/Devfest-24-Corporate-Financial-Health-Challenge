@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Sidebar from "/src/components/Dashboard/SideBar";
@@ -9,12 +10,13 @@ import pfp from "/src/assets/pfp.jpg";
 import Transactions from "/src/components/Dashboard/Transactions";
 import Available from "/src/components/Dashboard/Available";
 
-function Dashboard() {
-  const [profilePicture, setProfilePicture] = useState(pfp); // State for profile picture
-  const fullName = "Hwang Hyunjin"; // User's full name
-  const email = "hwanghyunjin00@gmail.com"; // User's email address
-  const [selectedItem, setSelectedItem] = useState(null); // State for selected item
-
+function Goals() {
+  // Sample data for the user profile
+  const userProfile = {
+    profilePicture: "/path/to/profile-picture.jpg",
+    fullName: "John Doe",
+    email: "johndoe@example.com",
+  };
   return (
     <div
       style={{
@@ -78,4 +80,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Goals;
