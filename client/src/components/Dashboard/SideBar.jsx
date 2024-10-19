@@ -1,27 +1,40 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-unknown-property */
-import React, { useState } from "react";
-import "./Style/SideBar.css"; // Adjust the path as necessary
+/* eslint-disable react/prop-types */ import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import "./Style/SideBar.css";
 import { BiLogOut } from "react-icons/bi";
 
 function Sidebar({ profilePicture, fullName, email }) {
-  const [selected, setSelected] = useState("Dashboard"); // Default selected item
+  const [selected, setSelected] = useState("Dashboard");
+  const [isManageOpen, setIsManageOpen] = useState(false);
+  const navigate = useNavigate();
 
   const menuItems = [
-    { name: "Dashboard", icon: "fas fa-th-large" },
-    { name: "Cards", icon: "fas fa-credit-card" },
-    { name: "Manage", icon: "fas fa-clipboard-list" },
-    { name: "History", icon: "fas fa-history" },
-    { name: "Settings", icon: "fas fa-cog" },
-    { name: "My assistant", icon: "fas fa-robot" },
+    { name: "Dashboard", icon: "fas fa-th-large", path: "/" },
+    {
+      name: "Manage",
+      icon: "fas fa-clipboard-list",
+      dropdown: [
+        { name: "Goals", path: "/Goals" },
+        { name: "Reports", path: "/Reports" },
+      ],
+    },
+    { name: "My assistant", icon: "fas fa-robot", path: "/assistant" },
   ];
 
-  const handleMenuClick = (name) => {
-    setSelected(name);
-    // Here you can add the navigation logic to the respective page
-    console.log(`Navigating to ${name}`);
+  const handleMenuClick = (item) => {
+    setSelected(item.name);
+    if (item.dropdown) {
+      setIsManageOpen(!isManageOpen);
+    } else {
+      navigate(item.path);
+    }
+  };
+
+  const handleDropdownItemClick = (path) => {
+    navigate(path);
+    setIsManageOpen(false);
   };
 
   const handleLogout = () => {
@@ -43,7 +56,7 @@ function Sidebar({ profilePicture, fullName, email }) {
       <div className="profile-section">
         <img
           src={profilePicture}
-          alt="User  Profile"
+          alt="User Profile"
           className="profile-picture"
         />
         <div className="profile-info">
@@ -54,18 +67,33 @@ function Sidebar({ profilePicture, fullName, email }) {
 
       <ul className="menu">
         {menuItems.map((item) => (
-          <li
-            key={item.name}
-            className={`menu-item ${selected === item.name ? "selected" : ""}`}
-            onClick={() => handleMenuClick(item.name)}
-          >
-            <i className={item.icon}></i>
-            <span>{item.name}</span>
-          </li>
+          <React.Fragment key={item.name}>
+            <li
+              className={`menu-item ${
+                selected === item.name ? "selected" : ""
+              }`}
+              onClick={() => handleMenuClick(item)}
+            >
+              <i className={item.icon}></i>
+              <span>{item.name}</span>
+            </li>
+            {item.dropdown && isManageOpen && (
+              <ul className="dropdown">
+                {item.dropdown.map((dropdownItem) => (
+                  <li
+                    key={dropdownItem.name}
+                    className="dropdown-item"
+                    onClick={() => handleDropdownItemClick(dropdownItem.path)}
+                  >
+                    <span>{dropdownItem.name}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </React.Fragment>
         ))}
       </ul>
 
-      {/* Log Out Button */}
       <div
         className="logout-button"
         onClick={handleLogout}
