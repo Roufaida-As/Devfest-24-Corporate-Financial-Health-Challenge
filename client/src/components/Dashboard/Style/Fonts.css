@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-regular.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat Subrayada";
+  src: url("./fonts/MontserratSubrayada-regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
